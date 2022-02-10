@@ -1,0 +1,33 @@
+<img src="" id="innerDiv2Img" alt="" />
+<script>
+const main = document.getElementById('main');
+const sliderImg = document.getElementById("innerDiv2Img");
+
+    var time = 1;
+    
+
+
+
+   sfw = ["waifu","neko","blowjob"]
+
+
+    function changeImg(imgLink){
+
+        randomWord = sfw[Math.floor(Math.random() * sfw.length)]
+        image = `https://api.waifu.pics/nsfw/${randomWord}`;
+
+        fetch(image)
+        .then(res=>res.json())
+        .then(data=>{
+            sliderImg.src = data.url;
+        })
+
+      sliderImg.style.animation = `${
+        animationArray[Math.floor(Math.random() * animationArray.length)]
+      }`;  
+
+      setTimeout("changeImg()", time);
+    }
+
+changeImg()
+</script>
